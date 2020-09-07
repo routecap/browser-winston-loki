@@ -1,5 +1,5 @@
 {
-  "name": "winston-loki",
+  "name": "browser-winston-loki",
   "version": "6.0.0-rc.3",
   "description": "A Winston transport for Grafana Loki",
   "keywords": [
@@ -16,10 +16,10 @@
   ],
   "main": "index.js",
   "scripts": {
-    "build:proto": "./node_modules/.bin/pbjs -t static-module -w commonjs -o ./src/proto/index.js ./src/proto/logproto.proto && npm run lint:fix",
-    "test": "./node_modules/.bin/standard && ./node_modules/.bin/jest",
-    "lint": "./node_modules/.bin/standard",
-    "lint:fix": "./node_modules/.bin/standard --fix",
+    "build:proto": "pbjs -t static-module -w commonjs -o ./src/proto/index.js ./src/proto/logproto.proto && npm run lint:fix",
+    "test": "standard && ./node_modules/.bin/jest",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "coverage": "jest --coverage",
     "coveralls": "jest --coverage && cat ./test/coverage/lcov.info | coveralls"
   },
@@ -45,13 +45,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JaniAnttonen/winston-loki.git"
+    "url": "git+https://github.com/JaniAnttonen/winston-loki.git"
   },
   "dependencies": {
     "async-exit-hook": "2.0.1",
     "btoa": "^1.2.1",
     "protobufjs": "^6.8.8",
-    "winston-transport": "^4.3.0"
+    "winston-transport": "^4.3.0",
+    "snappy": "^6.1.1"
   },
   "optionalDependencies": {
     "snappy": "^6.1.1"
@@ -69,5 +70,13 @@
     "jest": "^24.1.0",
     "standard": "^12.0.1",
     "winston": "^3.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/JaniAnttonen/winston-loki/issues"
+  },
+  "homepage": "https://github.com/JaniAnttonen/winston-loki#readme",
+  "directories": {
+    "example": "examples",
+    "test": "test"
   }
 }
